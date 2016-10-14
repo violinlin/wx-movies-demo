@@ -1,0 +1,86 @@
+/*seach*/
+.search-container {
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 1px 1px 2px 1px #565656;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 15px 5px 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 5px 10rpx;
+    height: 20px;
+    border-radius: 8rpx;
+}
+
+
+/*banner*/
+.swiper-view {
+    width: 95%;
+    margin: 0px auto;
+}
+
+.swiper-view image {
+    width: 100%;
+
+}
+
+/*导航标题布局*/
+#nav-wrap {
+    width: 100%;
+    height: 55rpx;
+    margin-top: 20rpx;
+
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.title-text {
+    font-size: 15rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-container {
+    margin-top: 20rpx;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 6rpx;
+}
+
+.nav-line {
+    height: 2rpx;
+    background-color: #969696;
+    width: 100%;
+}
+
+.nav-line2 {
+    position: absolute;
+    height: 6rpx;
+    background-color: #24b0fc;
+
+}
+
+/*body内容*/
+#body-wrap {
+    height: 100%;
+    width: 100%;
+}
