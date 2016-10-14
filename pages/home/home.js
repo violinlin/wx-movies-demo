@@ -36,10 +36,22 @@ Page({
         })
 
     },
+    onMenuClick: function (event) {
+        wx.navigateTo({
+            url:"../index/index"
+        })
+
+    },
+    onSearchClick: function (event) {
+        wx.navigateTo({
+            url: "../search/search"
+        })
+
+    },
     onBannerClick: function (event) {
         console.log("banner", event.currentTarget.dataset.name);
         wx.navigateTo({
-            url:"../detail/detail?mName="+event.currentTarget.dataset.name
+            url: "../detail/detail?mName=" + event.currentTarget.dataset.name
         });
     },
     onPageChange: function (event) {
