@@ -15,12 +15,13 @@ function getNextMovies(that, cName) {
         for (var j = 0; j < d1[i].data.length; j++) {
             var d2 = d1[i].data;
             page.push({
-                grade: d2[j].grade,
+                grade: "评分" + d2[j].grade,
                 icon: d2[j].iconaddress,
                 name: d2[j].tvTitle,
                 subHead: d2[j].subHead
 
             })
+
         }
         tabPages.push(page);
     }
@@ -31,8 +32,8 @@ function getNextMovies(that, cName) {
         'tabPages[0]': that.data.tabPages[0].concat(tabPages[0]),
         'tabPages[1]': that.data.tabPages[1].concat(tabPages[1]),
         pageIndex: that.data.pageIndex + 1,
-        hasNext:true,
-        hideFooter:true
+        hasNext: true,
+        hideFooter: true
     })
 
 },

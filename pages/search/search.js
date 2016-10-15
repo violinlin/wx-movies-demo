@@ -75,7 +75,7 @@ function saveSearchHistory(that, searchText) {
 //跳转搜索结果页
 function toSearchResult(searchtext) {
     wx.navigateTo({
-        url: '../searchresultpanel/searchresultpanel?mName=' + searchtext
+        url: '../detail/detail?mName=' + searchtext
     })
 
 }

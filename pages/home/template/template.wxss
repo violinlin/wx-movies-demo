@@ -33,7 +33,7 @@
 }
 .item-grade{
     align-self: flex-end;
-    font-size: 15px;
+    font-size: 10px;
     color: #24b0fc;
     margin: 0px 4px 4px 0px;
 }

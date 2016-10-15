@@ -75,6 +75,7 @@ Page({
         var tabLength = this.data.tabTitles.length;
         var lineLeft = cPage * (100 / tabLength)
         var data = {lineLeft: lineLeft};
+        console.log(event);
         for (var i = 0; i < tabLength; i++) {
             data['tabTitles[' + i + '].bColor'] = "#000000";
         }

@@ -4,7 +4,7 @@
         <image src="{{mItem.icon}}" mode="scaleToFill" class="item-image"></image>
         <textview class="item-name">{{mItem.name}}</textview>
         <textview class="item-sub">{{mItem.subHead}}</textview>
-        <textview class="item-grade">评分{{mItem.grade}}</textview>
+        <textview class="item-grade">{{mItem.grade}}</textview>
 
     </view>
 </template>

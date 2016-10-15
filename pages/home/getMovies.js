@@ -19,12 +19,13 @@ function getMovies(that, cName) {
         for (var j = 0; j < d1[i].data.length; j++) {
             var d2 = d1[i].data;
             page.push({
-                grade: d2[j].grade,
+                grade: "评分"+d2[j].grade,
                 icon: d2[j].iconaddress,
                 name: d2[j].tvTitle,
                 subHead: d2[j].subHead
 
             })
+
         }
         tabPages.push(page);
     }
