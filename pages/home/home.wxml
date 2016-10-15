@@ -1,14 +1,14 @@
 <loading hidden="{{hideLoading}}">加载中...</loading>
 <!--搜索栏-->
 <view class="search-container" bindtap="onSearchClick">
-    <image src="image/menu.png"  mode="scaleToFill" catchtap="onMenuClick"/>
-    <view  >大家都在搜</view>
+    <image src="image/menu.png" mode="scaleToFill" catchtap="onMenuClick"/>
+    <view>大家都在搜</view>
     <icon type="search" size="20"/>
 </view>
 
 <!--轮播图banner-->
 <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for-items="{{tabPages[1]}}">
         <swiper-item class="swiper-item" bindtap="onBannerClick" data-name="{{item.name}}">
             <image src="{{item.icon}}" mode='scaleToFill' class="swiper-image"/>
@@ -18,7 +18,9 @@
 
 <view id="nav-wrap">
     <view class="title-container">
-        <textview wx:for="{{tabTitles}}" class="title-text" style="color:{{item.bColor}} width: {{lineWidth}}%" data-index="{{index}}" bindtap="onTitleClick">{{item.title}}</textview>
+        <textview wx:for="{{tabTitles}}" class="title-text" style="color:{{item.bColor}} width: {{lineWidth}}%"
+                  data-index="{{index}}" bindtap="onTitleClick">{{item.title}}
+        </textview>
 
     </view>
     <view class="line-container">
@@ -34,10 +36,14 @@
             current="{{currentPage}}" style="height: {{bodyHeight}}px">
         <swiper-item wx:for="{{tabPages}}">
             <scroll-view style="height: 100%" scroll-y="true">
-                <block wx:for="{{item}}">
-                   <image src="{{item.icon}}">hello</image>
-                </block>
-
+                <import src="template/template.wxml"></import>
+                <view id="template-wrap">
+                    <block wx:for="{{item}}" wx:for-item="mItem">
+                        <view class="template-container">
+                            <template is="mListTem" data="{{mItem}}"></template>
+                        </view>
+                    </block>
+                </view>
 
             </scroll-view>
 

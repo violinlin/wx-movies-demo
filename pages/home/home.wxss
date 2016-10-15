@@ -1,3 +1,4 @@
+@import "template/template.wxss";
 /*seach*/
 .search-container {
     height: 55rpx;
@@ -90,4 +91,24 @@
 #body-wrap {
     height: 100%;
     width: 100%;
+}
+/*模板内容*/
+#template-wrap{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+
+.template-container{
+    width: 50%;
+    height: 500rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }

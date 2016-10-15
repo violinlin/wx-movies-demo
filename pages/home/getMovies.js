@@ -1,7 +1,7 @@
 /**
  * Created by violin on 2016/10/14.
  */
-//获取电影信息
+// 获取电影信息
 var netUtils = require("../../utils/netUtil");
 function getMovies(that, cName) {
     netUtils.requestData("pmovie", "city=" + cName).then(res => {
