@@ -1,4 +1,5 @@
 var getData = require("getMovies.js");
+var getNextData = require("getNextMovies.js");
 Page({
     data: {
         // text:"这是一个页面"
@@ -18,7 +19,12 @@ Page({
         lineWidth: 0,
         lineLeft: 0,
         currentPage: 0,
-        tabPages: []
+        tabPages: [],
+        //分页数据
+        citys: ["上海", "杭州", "深圳", "南京", "重庆"],//用城市来分页（没办法接口原因）
+        pageIndex: 0,//当前的页数
+        hasNext: true,//是否有下页
+        hideFooter:true
 
 
     },
@@ -38,7 +44,7 @@ Page({
     },
     onMenuClick: function (event) {
         wx.navigateTo({
-            url:"../index/index"
+            url: "../index/index"
         })
 
     },
@@ -75,6 +81,21 @@ Page({
             currentPage: index
         })
 
+
+    },
+    onScroolBottom: function (event) {
+
+        var that = this;
+        that.setData({
+            hideFooter:false
+        })
+        if (that.data.pageIndex < that.data.citys.length) {
+            getNextData.getNextMovies(that, that.data.citys[that.data.pageIndex])
+        } else {
+            that.setData({
+                hasNext: false
+            })
+        }
 
     },
     onReady: function () {

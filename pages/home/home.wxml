@@ -9,7 +9,7 @@
 <!--轮播图banner-->
 <swiper class="swiper-view" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for-items="{{tabPages[1]}}">
+    <block wx:for-items="{{bannerItems}}">
         <swiper-item class="swiper-item" bindtap="onBannerClick" data-name="{{item.name}}">
             <image src="{{item.icon}}" mode='scaleToFill' class="swiper-image"/>
         </swiper-item>
@@ -33,9 +33,9 @@
 
 <view id="body-wrap">
     <swiper bindchange="onPageChange"
-            current="{{currentPage}}" style="height: {{bodyHeight}}px">
+            current="{{currentPage}}" style="height: 100%">
         <swiper-item wx:for="{{tabPages}}">
-            <scroll-view style="height: 100%" scroll-y="true">
+            <scroll-view style="height: 100%" scroll-y="true" bindscrolltolower="onScroolBottom">
                 <import src="template/template.wxml"></import>
                 <view id="template-wrap">
                     <block wx:for="{{item}}" wx:for-item="mItem">
@@ -43,6 +43,14 @@
                             <template is="mListTem" data="{{mItem}}"></template>
                         </view>
                     </block>
+                    <view class="refresh-footer" wx:if="{{hasNext}}" hidden="{{hideFooter}}">
+                        <image src="image/loading.gif" mode="aspectFill"
+                               style="width: 30px;height: 30px;margin-right: 10px"/>
+                        <text>加载中...</text>
+                    </view>
+                    <view class="refresh-footer" wx:else>
+                        <textview>没有更多内容了!</textview>
+                    </view>
                 </view>
 
             </scroll-view>
@@ -50,4 +58,5 @@
         </swiper-item>
 
     </swiper>
+
 </view>

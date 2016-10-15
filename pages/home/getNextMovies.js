@@ -3,18 +3,14 @@
  */
 // 获取电影信息
 var netUtils = require("../../utils/netUtil");
-function getMovies(that, cName) {
+function getNextMovies(that, cName) {
     netUtils.requestData("pmovie", "city=" + cName).then(res => {
         console.log(res);
-    var tabTitles = [];
+
     var tabPages = [];
-    var title = res.result.title;
+    var data = {};
     for (var i = 0; i < res.result.data.length; i++) {
         var d1 = res.result.data;
-        tabTitles.push({
-            title: d1[i].name,
-            bColor: "#000"
-        });
         var page = [];
         for (var j = 0; j < d1[i].data.length; j++) {
             var d2 = d1[i].data;
@@ -28,23 +24,21 @@ function getMovies(that, cName) {
         }
         tabPages.push(page);
     }
-    tabTitles[0].bColor = "#24B0FC";
 
-    var lineWidth=100/tabTitles.length;
+
+    //'tabPages[0]'数组的下标还不知道怎么用变量拼接，所以先这样写了
     that.setData({
-        hideLoading: true,
-        title: title,
-        tabTitles: tabTitles,
-        tabPages: tabPages,
-        lineWidth:lineWidth,
-        bannerItems:tabPages[1]
+        'tabPages[0]': that.data.tabPages[0].concat(tabPages[0]),
+        'tabPages[1]': that.data.tabPages[1].concat(tabPages[1]),
+        pageIndex: that.data.pageIndex + 1,
+        hasNext:true,
+        hideFooter:true
     })
 
 },
     e =>
     {
-        hideLoading:true,
-            console.log(e)
+        console.log(e)
 
     }
 )
@@ -52,5 +46,5 @@ function getMovies(that, cName) {
 
 }
 module.exports = {
-    getMovies: getMovies
+    getNextMovies: getNextMovies
 }

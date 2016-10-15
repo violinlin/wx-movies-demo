@@ -57,7 +57,7 @@
 }
 
 .title-text {
-    font-size: 15rpx;
+    font-size: 25rpx;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -100,6 +100,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 
+
 }
 
 
@@ -110,5 +111,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+}
+/*加载更多fooger*/
+.refresh-footer {
+    width: 100%;
+    display: flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    color: #969696;
+    font-size: 15px;
+    margin :5px 0px;
 
 }
