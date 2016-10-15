@@ -2,7 +2,7 @@
 <!--搜索栏-->
 <view class="search-container" bindtap="onSearchClick">
     <image src="image/menu.png" mode="scaleToFill" catchtap="onMenuClick"/>
-    <view>大家都在搜</view>
+    <view>大家都在搜 "{{hotSearch}}"</view>
     <icon type="search" size="20"/>
 </view>
 

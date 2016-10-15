@@ -1,16 +1,22 @@
 Page({
     data: {
         // text:"这是一个页面"
-        buttonDisable: true,
+        buttonDisable: false,
         searchText: "",
-        searchHistory: []
+        searchHistory: [],
+        hotSearch: ""
 
     },
     onLoad: function (options) {
+        this.setData({
+            hotSearch: options.hotSearch,
+            searchText: options.hotSearch
+        })
+
         // 页面初始化 options为页面跳转所带来的参数
         var history = wx.getStorageSync('sHistory') || [];
         this.setData({
-            searchHistory:history
+            searchHistory: history
         })
     },
 
@@ -33,32 +39,43 @@ Page({
     },
     // 监听按键点击
     onSearchClick: function (event) {
-        var that=this;
-        saveSearchHistory(that,this.data.searchText);
+        var that = this;
+        saveSearchHistory(that, this.data.searchText);
         toSearchResult(this.data.searchText);
 
     },
     // 历史标签相应事件
-    onNavToResult:function (event) {
+    onNavToResult: function (event) {
         toSearchResult(event.currentTarget.dataset.text)
     },
 
 })
 //保存收索历史
-function saveSearchHistory(that,searchText) {
+function saveSearchHistory(that, searchText) {
 
     var history = wx.getStorageSync('sHistory') || [];
-    history.unshift(searchText);
-    wx.setStorageSync('sHistory', history);
-    that.setData({
-        searchHistory:history
-    })
+    if (history.length >10) {
+        history.pop();
+    }
+        for (var i = 0; i < history.length; i++) {
+            if (history[i] == searchText) {
+                history.splice(i, 1);
+            }
+        }
+
+        history.unshift(searchText);
+        wx.setStorageSync('sHistory', history);
+        that.setData({
+            searchHistory: history
+        })
+
+
 
 }
 //跳转搜索结果页
 function toSearchResult(searchtext) {
     wx.navigateTo({
-        url:'../searchresultpanel/searchresultpanel?mName='+searchtext
+        url: '../searchresultpanel/searchresultpanel?mName=' + searchtext
     })
 
 }

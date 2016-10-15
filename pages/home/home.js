@@ -24,7 +24,9 @@ Page({
         citys: ["上海", "杭州", "深圳", "南京", "重庆"],//用城市来分页（没办法接口原因）
         pageIndex: 0,//当前的页数
         hasNext: true,//是否有下页
-        hideFooter:true
+        hideFooter:true,
+        //搜索
+        hotSearch:"源代码"
 
 
     },
@@ -49,12 +51,19 @@ Page({
 
     },
     onSearchClick: function (event) {
+        var that=this;
         wx.navigateTo({
-            url: "../search/search"
+            url: "../search/search?hotSearch="+that.data.hotSearch
         })
 
     },
     onBannerClick: function (event) {
+        console.log("banner", event.currentTarget.dataset.name);
+        wx.navigateTo({
+            url: "../detail/detail?mName=" + event.currentTarget.dataset.name
+        });
+    },
+    onListItemClick:function (event) {
         console.log("banner", event.currentTarget.dataset.name);
         wx.navigateTo({
             url: "../detail/detail?mName=" + event.currentTarget.dataset.name
