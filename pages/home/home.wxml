@@ -16,9 +16,10 @@
     </block>
 </swiper>
 
+<!--标题导航栏-->
 <view id="nav-wrap">
     <view class="title-container">
-        <textview wx:for="{{tabTitles}}" class="title-text" style="color:{{item.bColor}} width: {{lineWidth}}%"
+        <textview wx:for="{{tabTitles}}" class="title-text" style="color:{{item.bColor}}; width: {{lineWidth}}%"
                   data-index="{{index}}" bindtap="onTitleClick">{{item.title}}
         </textview>
 
