@@ -4,7 +4,7 @@
 
 ## 先来张效果图吧
 > 项目的数据是使用的在聚合数据上申请的影视资讯接口。分享是件好事儿[源码github地址](https://github.com/violinlin/wx-movies-demo.git) 
-
+好吧，图片上传失败，效果图请移步[博客](http://www.jianshu.com/p/dcd47b43117e)
 ![影讯](http://7xvvky.com1.z0.glb.clouddn.com/blog/wx/wx-movies-demo.gif)
 
 
