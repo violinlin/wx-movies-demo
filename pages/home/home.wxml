@@ -1,4 +1,4 @@
-<loading hidden="{{hideLoading}}">加载中...</loading>
+
 <!--搜索栏-->
 <view class="search-container" bindtap="onSearchClick">
     <image src="image/menu.png" mode="scaleToFill" catchtap="onMenuClick"/>

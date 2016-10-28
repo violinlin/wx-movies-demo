@@ -16,6 +16,11 @@ Page({
 
     },
     onLoad: function (options) {
+        wx.showToast({
+            title:'加载中...',
+            icon:'loading',
+            duration:10000
+        })
         // 页面初始化 options为页面跳转所带来的参数
         var that = this;
         getData.getDetails(that, options.mName)

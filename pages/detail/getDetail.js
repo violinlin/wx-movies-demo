@@ -3,6 +3,14 @@ var netUtils = require("../../utils/netUtil");
 function getDetails(that, mName) {
     netUtils.requestData("video", "q=" + mName).then(res => {
         console.log(res);
+      
+  wx.showToast({
+            title:'加载成功！',
+            icon:'success'
+        })
+         setTimeout(function(){
+  wx.hideToast()
+},500)
     if (res.result==null){
         that.setData({
             hasResult:false,

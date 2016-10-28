@@ -1,4 +1,4 @@
-<loading hidden="{{hideLoadding}}">加载中...</loading>
+
 <scroll-view scroll-y="true" style="height: 100%" wx:if="{{hasResult}}" >
 
     <image src="{{mIcon}}" class="movie-image" mode="scaleToFill"></image>

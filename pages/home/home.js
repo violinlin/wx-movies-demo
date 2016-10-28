@@ -26,13 +26,21 @@ Page({
         hasNext: true,//是否有下页
         hideFooter:true,
         //搜索
-        hotSearch:"源代码"
+        hotSearch:"源代码",
+        t:'success'
 
 
     },
+    
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         var that = this;
+        wx.showToast({
+title:'加载中...',
+icon:'loading',
+duration:10000
+
+        })
         getData.getMovies(that, "北京");
         
         wx.getSystemInfo({

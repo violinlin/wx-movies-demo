@@ -5,8 +5,16 @@
 var netUtils = require("../../utils/netUtil");
 function getMovies(that, cName) {
     console.log("请求网络数据");
+  
     netUtils.requestData("pmovie", "city=" + cName).then(res => {
         console.log(res);
+        wx.showToast({
+            title:'加载成功！',
+            icon:'success'
+        })
+         setTimeout(function(){
+  wx.hideToast()
+},500)
     var tabTitles = [];
     var tabPages = [];
     var title = res.result.title;
