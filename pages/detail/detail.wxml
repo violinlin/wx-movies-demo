@@ -5,7 +5,7 @@
     <text class="movie-des" bindtap="onDesClick">{{movieDesc}}</text>
     <view class="title">演员列表</view>
     <scroll-view scroll-x="true" id="acts-wrap">
-        <view class="acts-container">
+        <view class="acts-container" style="width: {{acts.length*33}}%">
             <block wx:for="{{acts}}">
                 <view class="acts-view">
                     <image src="{{item.image}}"></image>

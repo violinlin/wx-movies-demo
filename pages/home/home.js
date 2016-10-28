@@ -24,25 +24,25 @@ Page({
         citys: ["上海", "杭州", "深圳", "南京", "重庆"],//用城市来分页（没办法接口原因）
         pageIndex: 0,//当前的页数
         hasNext: true,//是否有下页
-        hideFooter:true,
+        hideFooter: true,
         //搜索
-        hotSearch:"源代码",
-        t:'success'
+        hotSearch: "源代码",
+        t: 'success'
 
 
     },
-    
+
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
         var that = this;
         wx.showToast({
-title:'加载中...',
-icon:'loading',
-duration:10000
+            title: '加载中...',
+            icon: 'loading',
+            duration: 10000
 
         })
         getData.getMovies(that, "北京");
-        
+
         wx.getSystemInfo({
             success: function (res) {
                 var height = res.windowHeight;
@@ -60,9 +60,9 @@ duration:10000
 
     },
     onSearchClick: function (event) {
-        var that=this;
+        var that = this;
         wx.navigateTo({
-            url: "../search/search?hotSearch="+that.data.hotSearch
+            url: "../search/search?hotSearch=" + that.data.hotSearch
         })
 
     },
@@ -72,7 +72,7 @@ duration:10000
             url: "../detail/detail?mName=" + event.currentTarget.dataset.name
         });
     },
-    onListItemClick:function (event) {
+    onListItemClick: function (event) {
         console.log("banner", event.currentTarget.dataset.name);
         wx.navigateTo({
             url: "../detail/detail?mName=" + event.currentTarget.dataset.name
@@ -106,7 +106,7 @@ duration:10000
 
         var that = this;
         that.setData({
-            hideFooter:false
+            hideFooter: false
         })
         if (that.data.pageIndex < that.data.citys.length) {
             getNextData.getNextMovies(that, that.data.citys[that.data.pageIndex])
