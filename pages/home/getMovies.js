@@ -4,6 +4,7 @@
 // 获取电影信息
 var netUtils = require("../../utils/netUtil");
 function getMovies(that, cName) {
+    console.log("请求网络数据");
     netUtils.requestData("pmovie", "city=" + cName).then(res => {
         console.log(res);
     var tabTitles = [];

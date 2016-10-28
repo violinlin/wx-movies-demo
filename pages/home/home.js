@@ -34,6 +34,7 @@ Page({
         // 页面初始化 options为页面跳转所带来的参数
         var that = this;
         getData.getMovies(that, "北京");
+        
         wx.getSystemInfo({
             success: function (res) {
                 var height = res.windowHeight;
