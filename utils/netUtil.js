@@ -1,3 +1,4 @@
+import Promise from 'es6-promise.js';
 var HOST = 'http://op.juhe.cn/onebox/movie/';
 var key='a8b932b7661aee98fcb3c89984626302&';
 function requestData(action, params) {
